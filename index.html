@@ -1,0 +1,1488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="theme-color" content="#fcd116">
+    <meta name="description" content="Catálogo oficial Selección Colombia 2026 - Camisetas para hombre y mujer. Envíos a todo el país.">
+    <title>⚡ CATÁLOGO SELECCIÓN COLOMBIA ⚡</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --amarillo: #fcd116;
+            --amarillo-brillante: #ffdd44;
+            --rojo: #ce1126;
+            --rojo-oscuro: #a00d1c;
+            --azul: #003b7f;
+            --azul-oscuro: #002855;
+            --fondo: #0a1f2e;
+            --fondo2: #102b3f;
+            --verde-wa: #25D366;
+            --verde-wa-oscuro: #128C7E;
+            --morado-dama: #7b2fa6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(145deg, var(--fondo) 0%, var(--fondo2) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.05"><path fill="%23fcd116" d="M50 0 L100 50 L50 100 L0 50 Z"/><circle fill="%23003b7f" cx="50" cy="50" r="20"/><circle fill="%23ce1126" cx="50" cy="50" r="12"/><circle fill="%23fcd116" cx="50" cy="50" r="6"/></svg>');
+            background-size: 120px 120px;
+            pointer-events: none;
+            z-index: 0;
+            animation: patternMove 60s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 120px 120px; }
+        }
+
+        .container {
+            max-width: 1320px;
+            width: 100%;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* ===================== LIGHTBOX MODAL ===================== */
+        #lightbox-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 99999;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            animation: fadeInModal 0.25s ease;
+        }
+
+        #lightbox-modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+
+        #lightbox-modal .lb-inner {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 90vw;
+            max-height: 90vh;
+            gap: 16px;
+        }
+
+        #lightbox-img {
+            max-width: 88vw;
+            max-height: 78vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 20px;
+            border: 3px solid var(--amarillo);
+            box-shadow: 0 0 80px rgba(252, 209, 22, 0.35), 0 30px 60px rgba(0,0,0,0.9);
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: block;
+            background: #0a1a28;
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to   { transform: scale(1); opacity: 1; }
+        }
+
+        .lb-close {
+            position: absolute;
+            top: -14px;
+            right: -14px;
+            width: 44px;
+            height: 44px;
+            background: var(--rojo);
+            border: 3px solid var(--amarillo);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.4rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            line-height: 1;
+            transition: all 0.2s ease;
+            z-index: 10;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .lb-close:hover {
+            background: var(--rojo-oscuro);
+            transform: scale(1.15) rotate(90deg);
+        }
+
+        .lb-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .lb-arrow {
+            width: 52px;
+            height: 52px;
+            background: rgba(0,59,127,0.85);
+            border: 2px solid var(--amarillo);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.22s ease;
+            flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .lb-arrow:hover {
+            background: var(--azul);
+            border-color: white;
+            transform: scale(1.12);
+        }
+
+        .lb-counter {
+            color: var(--amarillo-brillante);
+            font-weight: 700;
+            font-size: 1rem;
+            min-width: 60px;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+
+        .lb-hint {
+            color: rgba(255,255,255,0.45);
+            font-size: 0.78rem;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .carousel-slide img {
+            cursor: zoom-in;
+        }
+
+        /* ===================== HERO ===================== */
+        .hero {
+            background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(252,209,22,0.2);
+            border-radius: 32px;
+            padding: 2rem 1.8rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 25px 45px -15px rgba(0,0,0,0.8);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .hero-left { flex: 1 1 400px; display: flex; flex-direction: column; gap: 1.2rem; }
+
+        .hero-left h1 {
+            font-family: 'Bebas Neue', 'Poppins', sans-serif;
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--amarillo) 0%, var(--amarillo-brillante) 25%, #ffffff 50%, var(--azul) 75%, var(--rojo) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .hero-left p {
+            color: #e5e5e5;
+            font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+            max-width: 480px;
+            line-height: 1.6;
+            border-left: 4px solid var(--amarillo);
+            padding: 0.8rem 1.2rem;
+            background: linear-gradient(90deg, rgba(0,59,127,0.25) 0%, transparent 100%);
+            border-radius: 0 16px 16px 0;
+        }
+
+        .hero-left p strong { color: var(--amarillo-brillante); font-weight: 700; }
+
+        .hero-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 0.5rem; }
+
+        .hero-badge {
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: 2px solid var(--amarillo);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .hero-badge.rojo { background: linear-gradient(135deg, var(--rojo) 0%, var(--rojo-oscuro) 100%); color: white; }
+        .hero-badge.azul { background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%); color: white; }
+
+        .hero-img {
+            flex: 0 0 auto;
+            max-width: 280px;
+            width: 100%;
+            background: linear-gradient(135deg, #0a1a28 0%, #0d1f2e 100%);
+            border-radius: 24px;
+            padding: 0.7rem;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.9), 0 0 0 3px var(--amarillo);
+            transform: rotate(1deg);
+            transition: all 0.4s ease;
+        }
+
+        .hero-img:hover {
+            transform: rotate(0deg) scale(1.03);
+            box-shadow: 0 35px 50px -10px rgba(0,0,0,0.95), 0 0 0 4px var(--rojo), 0 0 0 8px var(--amarillo);
+        }
+
+        .hero-img img { width: 100%; height: auto; border-radius: 20px; display: block; filter: brightness(1.05) contrast(1.08); }
+
+        /* ===================== LEMA ===================== */
+        .lema {
+            text-align: center;
+            margin: 2rem 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .lema-pill {
+            background: linear-gradient(135deg, var(--rojo) 0%, var(--rojo-oscuro) 100%);
+            padding: 0.5rem 1.3rem;
+            border-radius: 60px;
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            box-shadow: 0 0 0 3px var(--amarillo), 0 8px 20px rgba(0,0,0,0.5);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* ===================== SECTION TITLE ===================== */
+        .section-title { text-align: center; margin: 3.5rem 0 1.5rem; position: relative; }
+
+        .section-title h2 {
+            font-family: 'Bebas Neue', 'Poppins', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .section-title h2 .tag {
+            background: linear-gradient(135deg, var(--amarillo) 0%, var(--amarillo-brillante) 100%);
+            color: var(--fondo);
+            font-size: clamp(0.85rem, 1.8vw, 1rem);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            padding: 6px 20px;
+            border-radius: 30px;
+            letter-spacing: 1px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            height: 4px;
+            background: linear-gradient(90deg, transparent 0%, var(--amarillo) 25%, var(--rojo) 50%, var(--amarillo) 75%, transparent 100%);
+            border-radius: 4px;
+            margin: 0.8rem auto 0;
+            width: 60%;
+        }
+
+        /* ===================== CATÁLOGO ===================== */
+        .catalogo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 30px;
+            margin: 30px 0 60px;
+        }
+
+        .card {
+            background: rgba(10, 20, 30, 0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 32px;
+            padding: 30px 24px 28px;
+            border: 2px solid rgba(252,209,22,0.4);
+            transition: all 0.35s ease;
+            box-shadow: 0 25px 35px -12px rgba(0,0,0,0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: visible;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            border-color: var(--amarillo);
+            box-shadow: 0 35px 50px -15px rgba(0,0,0,0.95), 0 0 30px rgba(252,209,22,0.5);
+        }
+
+        .card::after {
+            content: "2026 🔥";
+            position: absolute;
+            top: 24px;
+            right: -32px;
+            background: linear-gradient(135deg, var(--rojo) 0%, var(--rojo-oscuro) 100%);
+            color: white;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 8px 38px;
+            transform: rotate(45deg);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.7);
+            letter-spacing: 1.5px;
+            z-index: 2;
+        }
+
+        .card.dama::after {
+            content: "DAMA 💜";
+            background: linear-gradient(135deg, var(--morado-dama) 0%, #5a1e82 100%);
+        }
+
+        /* ===================== CARRUSEL PRODUCTOS ===================== */
+        .carousel-container {
+            width: 100%;
+            max-width: 240px;
+            height: 240px;
+            margin: 15px auto 20px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+            filter: brightness(1.12) contrast(1.08) saturate(1.15);
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .carousel-container::before {
+            content: "🔍 TAP PARA AMPLIAR";
+            position: absolute;
+            bottom: 38px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.65);
+            color: var(--amarillo-brillante);
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .carousel-container:hover::before {
+            opacity: 1;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        .carousel-slide {
+            flex: 0 0 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a1a28;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            cursor: zoom-in;
+            -webkit-user-drag: none;
+            transition: transform 0.2s ease, filter 0.2s ease;
+        }
+
+        .carousel-slide img:hover {
+            transform: scale(1.03);
+            filter: brightness(1.12);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: rgba(0,0,0,0.75);
+            border: 2px solid var(--amarillo);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 15;
+            transition: all 0.2s ease;
+            -webkit-tap-highlight-color: transparent;
+            backdrop-filter: blur(4px);
+        }
+
+        .carousel-arrow:hover, .carousel-arrow:active {
+            background: var(--azul);
+            border-color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.prev { left: 8px; }
+        .carousel-arrow.next { right: 8px; }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 7px;
+            z-index: 15;
+            pointer-events: none;
+        }
+
+        .carousel-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: 1.5px solid var(--amarillo);
+            transition: all 0.25s ease;
+            pointer-events: auto;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .carousel-dot.active {
+            background: var(--amarillo);
+            transform: scale(1.3);
+            border-color: white;
+            box-shadow: 0 0 8px rgba(252,209,22,0.8);
+        }
+
+        /* ===================== RESTO ESTILOS ===================== */
+        .card h3 {
+            font-family: 'Bebas Neue', 'Poppins', sans-serif;
+            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--amarillo) 0%, var(--amarillo-brillante) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 10px 0 8px;
+        }
+
+        .version {
+            font-size: 0.95rem;
+            background: linear-gradient(135deg, #0e2233 0%, #1a3350 100%);
+            padding: 6px 20px;
+            border-radius: 40px;
+            color: var(--amarillo-brillante);
+            font-weight: 600;
+            border: 1.5px solid var(--amarillo);
+            margin-bottom: 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .precio {
+            font-size: clamp(2.2rem, 4vw, 2.8rem);
+            font-weight: 900;
+            color: white;
+            background: linear-gradient(135deg, var(--azul) 0%, var(--azul-oscuro) 100%);
+            padding: 8px 35px;
+            border-radius: 60px;
+            display: inline-block;
+            border: 3px solid var(--amarillo);
+            margin: 16px 0 12px;
+            box-shadow: 0 10px 0 #0a1f2e;
+            font-family: 'Bebas Neue', 'Poppins', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .tallas-wrap { width: 100%; margin: 14px 0 8px; padding: 0 10px; }
+
+        .tallas-label {
+            font-size: 0.75rem;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .tallas { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+
+        .talla {
+            background: linear-gradient(135deg, #1a3350 0%, #0e2233 100%);
+            border: 2px solid rgba(252,209,22,0.35);
+            color: white;
+            border-radius: 10px;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .talla:hover, .talla.activa {
+            background: linear-gradient(135deg, var(--amarillo) 0%, var(--amarillo-brillante) 100%);
+            color: var(--fondo);
+            border-color: var(--amarillo);
+            transform: scale(1.12);
+            box-shadow: 0 6px 18px rgba(252,209,22,0.5);
+        }
+
+        .descripcion {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 12px 0;
+            padding: 0 10px;
+        }
+
+        .descripcion span {
+            background: linear-gradient(135deg, #1e3a5a 0%, #0e2840 100%);
+            border-radius: 30px;
+            padding: 6px 14px;
+            color: white;
+            font-weight: 500;
+            font-size: 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(252,209,22,0.15);
+        }
+
+        .descripcion i { color: var(--amarillo-brillante); font-size: 0.9rem; }
+
+        .cita { color: var(--amarillo-brillante); font-style: italic; font-size: 0.88rem; margin: 8px 0 0; font-weight: 500; }
+
+        .btn-wa {
+            background: linear-gradient(135deg, var(--verde-wa) 0%, #20b859 100%);
+            border: 3px solid var(--amarillo);
+            padding: 18px 32px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0f1f29;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 18px;
+            box-shadow: 0 8px 0 var(--verde-wa-oscuro);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'Poppins', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-wa i { font-size: 1.7rem; color: white; }
+
+        .btn-wa:hover {
+            background: linear-gradient(135deg, #20b859 0%, var(--verde-wa) 100%);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 0 #0e6b5f;
+        }
+
+        .btn-wa:active {
+            transform: translateY(6px);
+            box-shadow: 0 3px 0 #0e6b5f;
+        }
+
+        .frases-patrias {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 18px;
+            margin: 60px 0 30px;
+        }
+
+        .frase {
+            background: linear-gradient(135deg, rgba(0,59,127,0.5) 0%, rgba(0,59,127,0.3) 100%);
+            backdrop-filter: blur(6px);
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-size: clamp(0.85rem, 1.8vw, 1rem);
+            font-weight: 700;
+            border: 2px solid var(--amarillo);
+            color: white;
+            text-shadow: 0 3px 6px rgba(206,17,38,0.8);
+            box-shadow: 0 12px 20px -8px rgba(0,0,0,0.6);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .frase i { color: var(--amarillo-brillante); font-size: 1.3rem; }
+
+        
+        .clientes-section {
+            margin: 20px 0 40px;
+        }
+
+        .clientes-section .section-title {
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+
+        .clientes-track-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 24px;
+            padding: 8px 0 20px;
+        }
+
+        /* Fade en los bordes */
+        .clientes-track-wrap::before,
+        .clientes-track-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 20px;
+            width: 80px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .clientes-track-wrap::before {
+            left: 0;
+            background: linear-gradient(90deg, var(--fondo) 0%, transparent 100%);
+        }
+        .clientes-track-wrap::after {
+            right: 0;
+            background: linear-gradient(270deg, var(--fondo2) 0%, transparent 100%);
+        }
+
+        .clientes-track {
+            display: flex;
+            gap: 16px;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+            padding: 4px 8px 8px;
+        }
+
+        /* Cada tarjeta de cliente */
+        .cliente-card {
+            flex: 0 0 200px;
+            height: 260px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid rgba(252,209,22,0.25);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background: #0a1828;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .cliente-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: var(--amarillo);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 20px rgba(252,209,22,0.3);
+        }
+
+        /* Placeholder SVG cuando no hay foto real */
+        .cliente-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cliente-placeholder svg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Badge Colombia en esquina */
+        .cliente-flag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(6px);
+            border: 1.5px solid var(--amarillo);
+            border-radius: 30px;
+            padding: 4px 10px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 4;
+            letter-spacing: 0.5px;
+        }
+
+        /* Dots del carrusel clientes */
+        .clientes-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .clientes-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            border: 1.5px solid rgba(252,209,22,0.5);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .clientes-dot.active {
+            background: var(--amarillo);
+            border-color: white;
+            transform: scale(1.3);
+            box-shadow: 0 0 8px rgba(252,209,22,0.7);
+        }
+
+        .banner-promo {
+            text-align: center;
+            background: linear-gradient(135deg, #0b1b2b 0%, #0e2233 100%);
+            padding: 1.2rem 2rem;
+            border-radius: 100px;
+            margin: 30px auto;
+            max-width: 720px;
+            border: 2px solid var(--amarillo);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .banner-promo p { color: white; font-size: clamp(1rem, 2vw, 1.15rem); line-height: 1.5; }
+        .banner-promo strong { color: var(--amarillo-brillante); font-weight: 800; }
+
+        footer {
+            color: #aaa;
+            margin-top: 60px;
+            font-size: 0.92rem;
+            border-top: 1px dashed rgba(252,209,22,0.3);
+            padding-top: 25px;
+            width: 100%;
+            text-align: center;
+        }
+
+        footer strong { color: var(--amarillo-brillante); font-weight: 700; }
+
+
+        /* ===================== CARRUSEL HERO CLIENTES ===================== */
+        .clientes-section {
+            margin: 20px 0 40px;
+        }
+        .clientes-section .section-title {
+            margin-top: 0;
+            margin-bottom: 1.8rem;
+        }
+        .clientes-hero-wrap {
+            position: relative;
+            width: 100%;
+            max-width: 360px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.7), 0 0 0 2px var(--amarillo);
+            background: #0a1828;
+        }
+        .clientes-hero-track {
+            display: flex;
+            width: 100%;
+            transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+        .clientes-hero-slide {
+            flex: 0 0 100%;
+            width: 100%;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #0a1828;
+        }
+        .clientes-hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+            transition: transform 0.4s ease;
+            -webkit-user-drag: none;
+            user-select: none;
+        }
+        /* Flechas */
+        .ch-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: rgba(0,0,0,0.55);
+            border: 2px solid var(--amarillo);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 20;
+            transition: all 0.22s ease;
+            backdrop-filter: blur(6px);
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ch-arrow:hover {
+            background: rgba(252,209,22,0.25);
+            border-color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .ch-prev { left: 10px; }
+        .ch-next { right: 10px; }
+        /* Dots */
+        .clientes-hero-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 20;
+        }
+        .clientes-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            border: 1.5px solid var(--amarillo);
+            cursor: pointer;
+            transition: all 0.28s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .clientes-dot.active {
+            background: var(--amarillo);
+            border-color: white;
+            transform: scale(1.4);
+            box-shadow: 0 0 8px rgba(252,209,22,0.9);
+        }
+        @media (max-width: 768px) {
+            .clientes-hero-wrap { border-radius: 16px; max-width: 280px; }
+            .clientes-hero-slide { aspect-ratio: 3/4; }
+            .ch-arrow { width: 32px; height: 32px; font-size: 1rem; }
+        }
+
+        /* ===================== RESPONSIVE ===================== */
+        @media (max-width: 768px) {
+            body { padding: 1rem 0.8rem; }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.5rem 1.2rem;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .hero-left { align-items: center; }
+
+            .hero-left p {
+                border-left: none;
+                border-top: 3px solid var(--amarillo);
+                padding: 0.8rem;
+                text-align: center;
+                border-radius: 16px;
+                background: rgba(0,59,127,0.2);
+            }
+
+            .hero-img { max-width: 220px; }
+            .hero-badges { justify-content: center; gap: 10px; }
+            .section-title::after { width: 90%; }
+
+            .catalogo {
+                grid-template-columns: 1fr;
+                gap: 22px;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .card { padding: 24px 18px 22px; }
+            .lema { gap: 10px; margin: 1.5rem 0 0.8rem; }
+            .frases-patrias { margin: 40px 0 20px; gap: 12px; }
+            .banner-promo { border-radius: 50px; padding: 1rem 1.2rem; }
+
+            .lb-arrow { width: 44px; height: 44px; font-size: 1.3rem; }
+            #lightbox-img { max-width: 95vw; max-height: 72vh; }
+
+            .cliente-card { flex: 0 0 160px; height: 210px; }
+            .clientes-track-wrap::before,
+            .clientes-track-wrap::after { width: 40px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 1.2rem 1rem; }
+            .tallas { gap: 6px; }
+            .talla { padding: 6px 11px; }
+            .btn-wa { padding: 15px 24px; font-size: 1rem; }
+            .cliente-card { flex: 0 0 150px; height: 195px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===================== LIGHTBOX MODAL ===================== -->
+<div id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+    <div class="lb-inner">
+        <button class="lb-close" id="lb-close-btn" aria-label="Cerrar">✕</button>
+        <img id="lightbox-img" src="" alt="Imagen ampliada">
+        <div class="lb-nav">
+            <button class="lb-arrow" id="lb-prev" aria-label="Anterior">&#10094;</button>
+            <span class="lb-counter" id="lb-counter">1 / 4</span>
+            <button class="lb-arrow" id="lb-next" aria-label="Siguiente">&#10095;</button>
+        </div>
+        <div class="lb-hint">ESC o clic fuera para cerrar · ← → para navegar</div>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-left">
+            <h1>¡ORGULLO<br>QUE SE VISTE!</h1>
+            <p>Edición especial <strong>"Corazón Tricolor"</strong> · 2026<br>La garra, el sudor y la gloria de Colombia.</p>
+            <div class="hero-badges">
+                <span class="hero-badge rojo"><i class="fas fa-shield-alt"></i> FCF</span>
+                <span class="hero-badge azul"><i class="fas fa-crown"></i> 3 estrellas</span>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="hero-colombia.jpeg" alt="Imagen oficial catálogo Selección Colombia">
+        </div>
+    </div>
+
+    <!-- LEMA -->
+    <div class="lema">
+        <div class="lema-pill"><i class="fas fa-futbol"></i> ¡SÍ, SEÑOR!</div>
+        <div class="lema-pill"><i class="fas fa-map-pin"></i> DE COLOMBIA</div>
+        <div class="lema-pill"><i class="fas fa-music"></i> QUEREMOS MÁS</div>
+    </div>
+
+    <!-- CABALLERO -->
+    <div class="section-title">
+        <h2><i class="fas fa-mars" style="color:var(--amarillo-brillante)"></i> CABALLERO <span class="tag">HOMBRE</span></h2>
+    </div>
+
+    <div class="catalogo">
+        <!-- HINCHA HOMBRE -->
+        <div class="card">
+            <div class="carousel-container" id="carousel-hincha">
+                <div class="carousel-track" id="track-hincha">
+                    <div class="carousel-slide"><img src="camiseta-bordada.jpeg" alt="Hincha frente" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="escudobordado.jpeg" alt="Escudo bordado" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="adidasbordado.jpeg" alt="Detalle tela" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="cuello-trasero-bordado.png" alt="Etiqueta" loading="lazy"></div>
+                </div>
+                <div class="carousel-arrow prev">&#10094;</div>
+                <div class="carousel-arrow next">&#10095;</div>
+                <div class="carousel-dots" id="dots-hincha"></div>
+            </div>
+            <h3>CAMISETA HINCHA</h3>
+            <div class="version"><i class="fas fa-heart" style="color:var(--rojo)"></i> ORGULLO POPULAR</div>
+            <div class="precio">$70</div>
+            <div class="tallas-wrap">
+                <div class="tallas-label">Tallas disponibles</div>
+                <div class="tallas" id="tallas-hincha">
+                    <div class="talla">S</div><div class="talla">M</div><div class="talla">L</div><div class="talla">XL</div><div class="talla">XXL</div>
+                </div>
+            </div>
+            <div class="descripcion">
+                <span><i class="fas fa-check-circle"></i> Réplica fiel</span>
+                <span><i class="fas fa-wind"></i> Transpirable</span>
+                <span><i class="fas fa-shield-alt"></i> Escudo bordado</span>
+            </div>
+            <p class="cita">"Lleva la hinchada en la piel"</p>
+            <button class="btn-wa" data-producto="hincha" aria-label="Comprar camiseta hincha por WhatsApp">
+                <i class="fab fa-whatsapp"></i> Comprar ahora
+            </button>
+        </div>
+
+        <!-- JUGADOR HOMBRE -->
+        <div class="card">
+            <div class="carousel-container" id="carousel-jugador">
+                <div class="carousel-track" id="track-jugador">
+                    <div class="carousel-slide"><img src="camiseta-termosello.jpeg" alt="Jugador frente" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="StikersAdidasTermosello.png" alt="Termosellado" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="scudotermosello.jpeg" alt="Dri-FIT" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="adidastermosello.jpeg" alt="Parche" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="escudoadidastermosello.jpeg" alt="Parche" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="cuello-trasero-termosello.png" alt="Termosellado" loading="lazy"></div>
+                </div>
+                <div class="carousel-arrow prev">&#10094;</div>
+                <div class="carousel-arrow next">&#10095;</div>
+                <div class="carousel-dots" id="dots-jugador"></div>
+            </div>
+            <h3>CAMISETA JUGADOR</h3>
+            <div class="version"><i class="fas fa-bolt" style="color:var(--amarillo-brillante)"></i> ÉLITE PRO</div>
+            <div class="precio">$90</div>
+            <div class="tallas-wrap">
+                <div class="tallas-label">Tallas disponibles</div>
+                <div class="tallas" id="tallas-jugador">
+                    <div class="talla">S</div><div class="talla">M</div><div class="talla">L</div><div class="talla">XL</div><div class="talla">XXL</div>
+                </div>
+            </div>
+            <div class="descripcion">
+                <span><i class="fas fa-tint"></i> Dri-FIT avanzado</span>
+                <span><i class="fas fa-tag"></i> Termoaplicado</span>
+                <span><i class="fas fa-wind"></i> Climacool</span>
+            </div>
+            <p class="cita">"La misma que usa James en la cancha"</p>
+            <button class="btn-wa" data-producto="jugador" aria-label="Comprar camiseta jugador por WhatsApp">
+                <i class="fab fa-whatsapp"></i> Comprar ahora
+            </button>
+        </div>
+    </div>
+
+    <!-- DAMA -->
+    <div class="section-title">
+        <h2><i class="fas fa-venus" style="color:#d88eff"></i> DAMA <span class="tag">MUJER</span></h2>
+    </div>
+
+    <div class="catalogo">
+        <!-- DAMA HINCHA -->
+        <div class="card dama">
+            <div class="carousel-container" id="carousel-dama">
+                <div class="carousel-track" id="track-dama">
+                    <div class="carousel-slide"><img src="camiseta-damacolombia.png" alt="Dama frente" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="dama-casual.jpeg" alt="Corte femenino" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="escudobordado.jpeg" alt="Escudo" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="adidasbordado.jpeg" alt="Tela" loading="lazy"></div>
+                </div>
+                <div class="carousel-arrow prev">&#10094;</div>
+                <div class="carousel-arrow next">&#10095;</div>
+                <div class="carousel-dots" id="dots-dama"></div>
+            </div>
+            <h3>CAMISETA DAMA</h3>
+            <div class="version" style="border-color:#d88eff; color:#d88eff; background:rgba(90,30,130,0.35);">
+                <i class="fas fa-star" style="color:#d88eff;"></i> EDICIÓN FEMENINA
+            </div>
+            <div class="precio">$70</div>
+            <div class="tallas-wrap">
+                <div class="tallas-label">Tallas disponibles</div>
+                <div class="tallas" id="tallas-dama">
+                    <div class="talla">XS</div><div class="talla">S</div><div class="talla">M</div><div class="talla">L</div><div class="talla">XL</div>
+                </div>
+            </div>
+            <div class="descripcion">
+                <span><i class="fas fa-check-circle"></i> Corte femenino</span>
+                <span><i class="fas fa-wind"></i> Ultra ligera</span>
+                <span><i class="fas fa-shield-alt"></i> Escudo bordado</span>
+            </div>
+            <p class="cita">"¡Ellas también son Selección!"</p>
+            <button class="btn-wa" data-producto="dama" aria-label="Comprar camiseta dama por WhatsApp">
+                <i class="fab fa-whatsapp"></i> Comprar ahora
+            </button>
+        </div>
+
+        <!-- DAMA ÉLITE -->
+        <div class="card dama">
+            <div class="carousel-container" id="carousel-dama-elite">
+                <div class="carousel-track" id="track-dama-elite">
+                    <div class="carousel-slide"><img src="damapro.png" alt="Dama élite frente" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="damapromodelo.png" alt="Tecnología dama" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="adidastermosello.jpeg" alt="Terminaciones" loading="lazy"></div>
+                    <div class="carousel-slide"><img src="escudoadidastermosello.jpeg" alt="Parche dama" loading="lazy"></div>
+                </div>
+                <div class="carousel-arrow prev">&#10094;</div>
+                <div class="carousel-arrow next">&#10095;</div>
+                <div class="carousel-dots" id="dots-dama-elite"></div>
+            </div>
+            <h3>CAMISETA DAMA ÉLITE</h3>
+            <div class="version" style="border-color:#d88eff; color:#d88eff; background:rgba(90,30,130,0.35);">
+                <i class="fas fa-crown" style="color:#d88eff;"></i> JUGADOR FEMENINO
+            </div>
+            <div class="precio">$90</div>
+            <div class="tallas-wrap">
+                <div class="tallas-label">Tallas disponibles</div>
+                <div class="tallas" id="tallas-dama-elite">
+                    <div class="talla">XS</div><div class="talla">S</div><div class="talla">M</div><div class="talla">L</div><div class="talla">XL</div>
+                </div>
+            </div>
+            <div class="descripcion">
+                <span><i class="fas fa-tint"></i> Dri-FIT avanzado</span>
+                <span><i class="fas fa-tag"></i> Termoadherido</span>
+                <span><i class="fas fa-crown"></i> Edición capitana</span>
+            </div>
+            <p class="cita">"Como las guerreras de la selección"</p>
+            <button class="btn-wa" data-producto="dama-elite" aria-label="Comprar camiseta dama élite por WhatsApp">
+                <i class="fab fa-whatsapp"></i> Comprar ahora
+            </button>
+        </div>
+    </div>
+
+    <!-- FRASES PATRIÓTICAS -->
+    <div class="frases-patrias">
+        <div class="frase"><i class="fas fa-futbol"></i> ESTO ES COSA DE TODOS</div>
+        <div class="frase"><i class="fas fa-map-marked-alt"></i> DE LA COSTA A LOS ANDES</div>
+        <div class="frase"><i class="fas fa-hand-fist"></i> LA GUERRERA TRICOLOR</div>
+        <div class="frase"><i class="fas fa-cloud-sun"></i> TIERRA QUERIDA</div>
+    </div>
+
+        <!-- ===================== SECCIÓN CLIENTES FELICES ===================== -->
+    <div class="clientes-section">
+        <div class="section-title">
+            <h2><i class="fas fa-camera" style="color:var(--amarillo-brillante)"></i> SARA VELILLA <span class="tag">⭐ REAL PEOPLE</span></h2>
+        </div>
+
+        <div class="clientes-hero-wrap">
+            <div class="clientes-hero-track" id="clientes-hero-track">
+                <div class="clientes-hero-slide">
+                    <img src="1.jpeg" alt="Cliente 1 con camiseta Colombia">
+                </div>
+                <div class="clientes-hero-slide">
+                    <img src="2.jpeg" alt="Cliente 2 con camiseta Colombia">
+                </div>
+                <div class="clientes-hero-slide">
+                    <img src="3.jpeg" alt="Cliente 3 con camiseta Colombia">
+                </div>
+               
+
+            </div>
+            <!-- Dots -->
+            <div class="clientes-hero-dots" id="clientes-hero-dots">
+                <div class="clientes-dot active" data-idx="0"></div>
+                <div class="clientes-dot" data-idx="1"></div>
+                <div class="clientes-dot" data-idx="2"></div>
+                <div class="clientes-dot" data-idx="3"></div>
+            </div>
+            <!-- Prev / Next flechas sutiles -->
+            <button class="ch-arrow ch-prev" id="ch-prev" aria-label="Anterior">&#10094;</button>
+            <button class="ch-arrow ch-next" id="ch-next" aria-label="Siguiente">&#10095;</button>
+        </div>
+
+    </div><!-- /clientes-section -->
+
+
+    <div class="banner-promo">
+        <p><i class="fas fa-certificate" style="color:var(--amarillo-brillante)"></i> <strong>Visión 2026:</strong> Edición limitada "Nuestro ritmo, nuestra piel" 🔥🇨🇴</p>
+    </div>
+
+    <footer>
+        <strong>© SELECCIÓN COLOMBIA FAN SHOP</strong> — Envíos a todo el país — <i class="fas fa-shield-alt"></i> 100% oficial
+    </footer>
+
+</div>
+
+<script>
+(function () {
+    'use strict';
+
+    // ============================================================
+    // LIGHTBOX
+    // ============================================================
+    const modal      = document.getElementById('lightbox-modal');
+    const lbImg      = document.getElementById('lightbox-img');
+    const lbCounter  = document.getElementById('lb-counter');
+    const lbClose    = document.getElementById('lb-close-btn');
+    const lbPrev     = document.getElementById('lb-prev');
+    const lbNext     = document.getElementById('lb-next');
+
+    let lbImages = [];
+    let lbIndex  = 0;
+
+    function openLightbox(images, startIndex) {
+        lbImages = images;
+        lbIndex  = startIndex;
+        updateLightboxImage();
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        lbImg.src = '';
+    }
+
+    function updateLightboxImage() {
+        lbImg.src = lbImages[lbIndex];
+        lbImg.alt = `Imagen ${lbIndex + 1} de ${lbImages.length}`;
+        lbCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+    }
+
+    function lbGoNext() { lbIndex = (lbIndex + 1) % lbImages.length; updateLightboxImage(); }
+    function lbGoPrev() { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; updateLightboxImage(); }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbNext.addEventListener('click', lbGoNext);
+    lbPrev.addEventListener('click', lbGoPrev);
+    modal.addEventListener('click', function (e) { if (e.target === modal) closeLightbox(); });
+    document.addEventListener('keydown', function (e) {
+        if (!modal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') lbGoNext();
+        if (e.key === 'ArrowLeft') lbGoPrev();
+    });
+    let lbTouchX = 0;
+    modal.addEventListener('touchstart', (e) => { lbTouchX = e.changedTouches[0].screenX; }, { passive: true });
+    modal.addEventListener('touchend', (e) => {
+        const diff = lbTouchX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) { if (diff > 0) lbGoNext(); else lbGoPrev(); }
+    }, { passive: true });
+
+    // ============================================================
+    // CARRUSELES PRODUCTOS
+    // ============================================================
+    const carousels = {};
+
+    function initCarousel(id) {
+        const container     = document.getElementById(`carousel-${id}`);
+        const track         = document.getElementById(`track-${id}`);
+        const dotsContainer = document.getElementById(`dots-${id}`);
+        if (!container || !track || !dotsContainer) return;
+
+        const slides      = Array.from(track.querySelectorAll('.carousel-slide'));
+        const totalSlides = slides.length;
+        if (totalSlides === 0) return;
+
+        carousels[id] = { container, track, dotsContainer, currentIndex: 0, totalSlides };
+
+        dotsContainer.innerHTML = '';
+        slides.forEach((_, i) => {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', (e) => { e.stopPropagation(); goToSlide(id, i); });
+            dotsContainer.appendChild(dot);
+        });
+
+        const prevArrow = container.querySelector('.carousel-arrow.prev');
+        const nextArrow = container.querySelector('.carousel-arrow.next');
+        if (prevArrow) prevArrow.addEventListener('click', (e) => { e.stopPropagation(); moveSlide(id, -1); });
+        if (nextArrow) nextArrow.addEventListener('click', (e) => { e.stopPropagation(); moveSlide(id, 1); });
+
+        slides.forEach((slide, slideIndex) => {
+            const img = slide.querySelector('img');
+            if (!img) return;
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const allSrcs = slides.map(s => s.querySelector('img')?.src).filter(Boolean);
+                openLightbox(allSrcs, slideIndex);
+            });
+        });
+
+        let touchStartX = 0;
+        container.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        container.addEventListener('touchend', (e) => {
+            const diff = touchStartX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 50) { if (diff > 0) moveSlide(id, 1); else moveSlide(id, -1); }
+        }, { passive: true });
+    }
+
+    function goToSlide(id, index) {
+        const c = carousels[id];
+        if (!c) return;
+        index = Math.max(0, Math.min(index, c.totalSlides - 1));
+        c.currentIndex = index;
+        c.track.style.transform = `translateX(-${index * 100}%)`;
+        c.dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function moveSlide(id, direction) {
+        const c = carousels[id];
+        if (!c) return;
+        let newIndex = c.currentIndex + direction;
+        if (newIndex < 0) newIndex = c.totalSlides - 1;
+        else if (newIndex >= c.totalSlides) newIndex = 0;
+        goToSlide(id, newIndex);
+    }
+
+    
+
+
+    // ============================================================
+    // CARRUSEL CLIENTES HERO (autoplay)
+    // ============================================================
+    (function() {
+        const track   = document.getElementById('clientes-hero-track');
+        const dots    = Array.from(document.querySelectorAll('#clientes-hero-dots .clientes-dot'));
+        const prevBtn = document.getElementById('ch-prev');
+        const nextBtn = document.getElementById('ch-next');
+        if (!track) return;
+
+        const total = track.querySelectorAll('.clientes-hero-slide').length;
+        let current = 0;
+        let timer   = null;
+        let touchX  = 0;
+
+        function goTo(idx) {
+            current = (idx + total) % total;
+            track.style.transform = `translateX(-${current * 100}%)`;
+            dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+
+        function next() { goTo(current + 1); }
+        function prev() { goTo(current - 1); }
+
+        function startAuto() {
+            stopAuto();
+            timer = setInterval(next, 3500);
+        }
+        function stopAuto() {
+            if (timer) { clearInterval(timer); timer = null; }
+        }
+
+        dots.forEach(d => {
+            d.addEventListener('click', () => {
+                goTo(parseInt(d.dataset.idx));
+                stopAuto(); startAuto();
+            });
+        });
+
+        if (prevBtn) prevBtn.addEventListener('click', () => { prev(); stopAuto(); startAuto(); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { next(); stopAuto(); startAuto(); });
+
+        // Swipe
+        track.addEventListener('touchstart', e => { touchX = e.changedTouches[0].screenX; stopAuto(); }, { passive: true });
+        track.addEventListener('touchend',   e => {
+            const diff = touchX - e.changedTouches[0].screenX;
+            if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); }
+            startAuto();
+        }, { passive: true });
+
+        // Pause on hover
+        track.closest('.clientes-hero-wrap')?.addEventListener('mouseenter', stopAuto);
+        track.closest('.clientes-hero-wrap')?.addEventListener('mouseleave', startAuto);
+
+        startAuto();
+    })();
+
+    // ============================================================
+    // TALLAS
+    // ============================================================
+    document.querySelectorAll('.tallas').forEach(tallasContainer => {
+        tallasContainer.querySelectorAll('.talla').forEach(talla => {
+            talla.addEventListener('click', () => {
+                tallasContainer.querySelectorAll('.talla').forEach(t => t.classList.remove('activa'));
+                talla.classList.add('activa');
+            });
+        });
+    });
+
+    // ============================================================
+    // WHATSAPP
+    // ============================================================
+    const mensajes = {
+        'hincha':     'Hola, estoy interesad@ en la *CAMISETA HINCHA ($70)* de la Selección Colombia 🇨🇴🔥',
+        'jugador':    'Hola, quiero la *CAMISETA JUGADOR ($90)* de la Selección Colombia ⚽🇨🇴',
+        'dama':       'Hola, me interesa la *CAMISETA DAMA ($70)* de la Selección Colombia 🇨🇴💜',
+        'dama-elite': 'Hola, quiero la *CAMISETA DAMA ÉLITE ($90)* de la Selección Colombia ⚽🇨🇴'
+    };
+
+    document.querySelectorAll('.btn-wa').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const producto = this.getAttribute('data-producto');
+            const tallaSeleccionada = document.querySelector(`#tallas-${producto} .talla.activa`);
+            let mensaje = mensajes[producto] || mensajes['hincha'];
+            if (tallaSeleccionada) mensaje += ` - Talla: *${tallaSeleccionada.textContent}*`;
+            mensaje += '. ¿Está disponible?';
+            window.open(`https://wa.me/573128692115?text=${encodeURIComponent(mensaje)}`, '_blank');
+        });
+    });
+
+    // ============================================================
+    // INICIALIZAR CARRUSELES PRODUCTOS
+    // ============================================================
+    ['hincha', 'jugador', 'dama', 'dama-elite'].forEach(id => initCarousel(id));
+
+    console.log('%c🇨🇴 CATÁLOGO COLOMBIA 2026 — Clientes felices añadidos', 'color:#fcd116; font-size:14px; font-weight:bold;');
+})();
+</script>
+</body>
+</html>
