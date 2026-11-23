@@ -108,6 +108,12 @@ p{color:var(--muted);line-height:1.6;margin:0;max-width:640px;font-size:clamp(.9
 .ticket .tside:before{top:-8px}.ticket .tside:after{bottom:-8px}
 .send{border:0;border-radius:12px;padding:11px 14px;background:linear-gradient(110deg,var(--amber),#ff9f6b);color:#2a1406;font-weight:800;cursor:pointer;font-size:.82rem;transition:.2s;white-space:nowrap}.send:hover{transform:translateY(-2px)}
 .fine{font-size:.84rem;margin-top:18px}
+.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.chip{border:1px solid #ffffff2e;background:#ffffff0c;color:var(--ink);border-radius:99px;padding:10px 16px;cursor:pointer;font-size:.9rem;transition:.2s}
+.chip:hover{border-color:#9cebd7aa;transform:translateY(-2px)}.chip:active{transform:scale(.96)}
+.chip[aria-pressed=true]{background:#d5f8ed;color:#0d2924;border-color:#d5f8ed;font-weight:800;box-shadow:0 0 24px #7de0c333}
+.qlabel{margin-top:24px;font-weight:700;font-size:1.02rem;color:#e6eff6}.opt{font-weight:400;color:#8ea0b3;font-size:.78rem;margin-left:8px}
+.tease{margin-top:12px;font-size:.74rem;color:var(--amber);letter-spacing:.04em}
 .controls{display:flex;justify-content:space-between;align-items:center;padding:12px 3px 0;flex-shrink:0;gap:10px}
 .dots{display:flex;gap:7px;align-items:center}.dot{width:8px;height:8px;border-radius:50%;background:#ffffff40;border:0;padding:0;cursor:pointer;transition:.3s}.dot.active{width:26px;border-radius:9px;background:var(--mint)}
 .arrows{display:flex;gap:8px}.arrow{width:42px;height:38px;border-radius:12px;border:1px solid #ffffff30;background:#ffffff0b;color:white;cursor:pointer;font-size:1.1rem;transition:.2s}.arrow:hover:not(:disabled){background:#ffffff1d}.arrow:disabled{opacity:.25;cursor:default}
@@ -128,13 +134,13 @@ p{color:var(--muted);line-height:1.6;margin:0;max-width:640px;font-size:clamp(.9
 <div class="bg"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
 <canvas id="sparks"></canvas><canvas id="confetti"></canvas>
 <div class="shell">
- <div class="navtop"><div class="brand"><b>✦</b> Un plan fuera de lo común</div><div class="counter" id="counter">01 / 04</div></div>
+ <div class="navtop"><div class="brand"><b>✦</b> Un plan fuera de lo común</div><div class="counter" id="counter">01 / 05</div></div>
  <div class="progressline"><span id="progress"></span></div>
  <div class="deck"><div class="slides" id="slides">
 
   <section class="slide active"><div class="content hero-grid">
    <div>
-    <div class="kicker rv" style="--i:0">Una idea pendiente · Parte 01</div>
+    <div class="kicker rv" style="--i:0" id="kick">Una idea pendiente · Parte 01</div>
     <h1 class="rv" style="--i:1">Saliendo de<br><span class="accent">la rutina.</span></h1>
     <div class="hero-sub rv" style="--i:2"><span id="typed"></span><span class="caret"></span></div>
     <p class="rv" style="margin-top:12px;--i:3">Creo que ya va siendo hora de cambiar un rato el paisaje…</p>
@@ -148,7 +154,7 @@ p{color:var(--muted);line-height:1.6;margin:0;max-width:640px;font-size:clamp(.9
    <div class="kicker rv" style="--i:0">Mientras tanto…</div>
    <h2 class="rv" style="--i:1">El tiempo vuela.<br><span class="accent">Y las ideas también.</span></h2>
    <p class="rv" style="--i:2">Desde aquella conversación del 13 de noviembre han pasado unos días. No es que esté llevando la cuenta… bueno, un poquito. 😅</p>
-   <div class="stats rv" style="--i:3"><div class="number"><span id="pct">0</span><small>%</small></div><div class="statcopy"><b id="daysTxt">… de 15 días</b><br><span style="color:var(--muted);font-size:.88rem">La revisión informal de agenda.</span></div></div>
+   <div class="stats rv" style="--i:3"><div class="number"><span id="pct">0</span><small>días</small></div><div class="statcopy"><b>desde que lo hablamos</b><br><span style="color:var(--muted);font-size:.88rem">Sin afán: la idea espera lo que tenga que esperar.</span></div></div>
    <div class="road rv" style="--i:4">
     <svg viewBox="0 0 640 110" aria-hidden="true"><defs><linearGradient id="rg" x1="0" x2="1"><stop offset="0" stop-color="#4d9e96"/><stop offset="1" stop-color="#c3ffeb"/></linearGradient></defs>
      <path id="roadPath" class="base" d="M14 78 C110 8 190 104 320 56 S520 6 626 62"/>
@@ -158,14 +164,15 @@ p{color:var(--muted);line-height:1.6;margin:0;max-width:640px;font-size:clamp(.9
      <circle id="pulse" class="pulse" r="9" cx="14" cy="78"/><circle id="pin" class="pin" r="6" cx="14" cy="78"/>
     </svg>
    </div>
-   <div class="meta rv" style="--i:4"><span>13 de noviembre</span><span id="todayTxt">hoy</span><span>28 de noviembre</span></div>
-   <div class="quote rv" style="--i:5">La propuesta sigue en pie. El destino todavía está negociando su protagonismo.</div>
+   <div class="meta rv" style="--i:4"><span>13 de noviembre</span><span id="todayTxt">hoy</span><span>cuando tú quieras ☕</span></div>
+   <div class="quote rv" style="--i:5">La propuesta sigue en pie, sin fecha límite. El destino todavía está negociando su protagonismo.</div>
    <div class="rv" style="--i:6"><button class="cta" data-next>Muéstrame esos destinos <span>→</span></button></div>
   </div></section>
 
   <section class="slide"><div class="content places-layout">
    <div class="intro"><div class="kicker rv" style="--i:0">He hecho la tarea… un poquito</div><h2 class="rv" style="--i:1">Ahora te toca<br><span class="accent">elegir el paisaje.</span></h2>
    <p class="rv" style="--i:2">Encontré un par de sitios que podrían funcionar. Tú mira, critica, aprueba… tienes voto decisivo.</p>
+   <p class="rv" style="--i:2;font-size:.88rem;margin-top:10px;color:#9fb2c4">Solo un cafecito corto, sin compromiso. Tú decides cuánto dura. ☕</p>
    <div class="selected-label rv" style="--i:3" id="selectedLabel" aria-live="polite">Todavía no hay favorito. 👀</div></div>
    <div class="place-list">
     <article class="place rv" style="--i:2" data-place="Kapeira Café"><span class="fav">Favorito</span><div class="tag">01 · Cafecito</div><h3>Kapeira Café</h3><p>Una parada rica para conversar y no mirar el reloj cada cinco minutos.</p><div class="place-actions"><a class="mini" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Kapeira+Cafe+La+Ceja+Antioquia">Mapa ↗</a><button class="mini choose" data-pick="Kapeira Café">Me suena</button></div></article>
@@ -174,6 +181,16 @@ p{color:var(--muted);line-height:1.6;margin:0;max-width:640px;font-size:clamp(.9
     <article class="place rv" style="--i:5" data-place="__custom"><span class="fav">Favorito</span><div class="tag">04 · Tu turno</div><h3>La opción sorpresa</h3><p id="surpriseTxt">Esta la dejo libre. A ver qué lugar tienes bajo la manga.</p><div class="place-actions"><span class="mini">Tu investigación 😉</span></div></article>
     <div class="place custom rv" style="--i:6"><label for="otherPlace" style="font-size:.83rem;color:#dce9f1">¿Se te ocurrió otro?</label><input id="otherPlace" maxlength="90" placeholder="Nombre del lugar…" autocomplete="off"><button class="mini choose" id="saveOther">Proponer</button></div>
    </div>
+  </div></section>
+
+  <section class="slide"><div class="content">
+   <div class="kicker rv" style="--i:0">Un detalle más · opcional</div><h2 class="rv" style="--i:1">Armemos el<br><span class="accent">camino juntos.</span></h2>
+   <p class="rv" style="--i:2">Nada de esto es obligatorio. Es solo para que el plan se parezca más a ti.</p>
+   <div class="rv" style="--i:3"><div class="qlabel">🎵 ¿Qué suena de camino?<span class="opt">toca para elegir</span></div>
+    <div class="chips"><button class="chip" data-music="Pop">Pop</button><button class="chip" data-music="Rock">Rock</button><button class="chip" data-music="Baladas">Baladas</button><button class="chip" data-music="Latino">Latino</button><button class="chip" data-music="Sorpréndeme">Sorpréndeme 🎲</button></div></div>
+   <div class="rv" style="--i:4"><div class="qlabel">🕰️ ¿Cuándo se te antoja más?<span class="opt">sin compromiso</span></div>
+    <div class="chips"><button class="chip" data-when="Entre semana, en la tarde">Entre semana, tarde</button><button class="chip" data-when="Sábado en la mañana">Sábado en la mañana</button><button class="chip" data-when="Domingo en la tarde">Domingo en la tarde</button><button class="chip" data-when="Tú dime">Tú dime</button></div></div>
+   <div class="rv" style="--i:5"><button class="cta" data-next>Listo, a la pregunta final <span>→</span></button></div>
   </div></section>
 
   <section class="slide"><div class="content">
@@ -187,19 +204,21 @@ p{color:var(--muted);line-height:1.6;margin:0;max-width:640px;font-size:clamp(.9
    <div id="answerFeedback" class="finalnote" aria-live="polite"></div>
    <div class="ticket" id="ticket">
     <div class="tmain"><div class="tlabel">✦ Pase de salida · Parte 01</div>
-     <div class="trow"><div><small>Destino</small><strong id="tDest">Por elegir</strong></div><div><small>Mi respuesta</small><strong id="tAns">—</strong></div><div><small>Fecha</small><strong>Por cuadrar</strong></div><div><small>Copiloto</small><strong>Tú 😉</strong></div></div></div>
+     <div class="trow"><div><small>Destino</small><strong id="tDest">Por elegir</strong></div><div><small>Mi respuesta</small><strong id="tAns">—</strong></div><div><small>Momento</small><strong id="tWhen">Por cuadrar</strong></div><div><small>Música</small><strong id="tMus">Sorpresa</strong></div><div><small>Copiloto</small><strong id="tCo">Tú 😉</strong></div></div><div class="tease">🔒 Parte 02 · se revela cuando cuadremos el día</div></div>
     <div class="tside"><button class="send" id="sendBtn">Enviar mi respuesta 💌</button><button class="ghost" id="copyBtn" style="padding:8px 12px;font-size:.78rem;justify-content:center">Copiar</button></div>
    </div>
-   <p class="fine rv" style="--i:5">Y si el plan cambia, no pasa nada. Lo importante es que sea cómodo para los dos.</p>
+   <p class="fine rv" style="--i:5">Y si el plan cambia, no pasa nada. Lo importante es que sea cómodo para los dos. Cualquier respuesta es una buena respuesta 🙂</p>
   </div></section>
 
  </div></div>
- <div class="controls"><div class="dots" id="dots"><button class="dot active" aria-label="Pantalla 1"></button><button class="dot" aria-label="Pantalla 2"></button><button class="dot" aria-label="Pantalla 3"></button><button class="dot" aria-label="Pantalla 4"></button></div><div id="toast" aria-live="polite"></div><div class="arrows"><button class="arrow" id="prev" aria-label="Anterior">←</button><button class="arrow" id="next" aria-label="Siguiente">→</button></div></div>
+ <div class="controls"><div class="dots" id="dots"><button class="dot active" aria-label="Pantalla 1"></button><button class="dot" aria-label="Pantalla 2"></button><button class="dot" aria-label="Pantalla 3"></button><button class="dot" aria-label="Pantalla 4"></button><button class="dot" aria-label="Pantalla 5"></button></div><div id="toast" aria-live="polite"></div><div class="arrows"><button class="arrow" id="prev" aria-label="Anterior">←</button><button class="arrow" id="next" aria-label="Siguiente">→</button></div></div>
 </div>
 <script>
 /* ===== Ajustes ===== */
 // Si pones tu número con indicativo (ej. '573001234567'), el botón "Enviar mi respuesta" abre WhatsApp directo contigo.
 const WHATSAPP_NUMBER='';
+// Opcional: su nombre para personalizar (ej. 'Laura'). Vacío = sin nombre.
+const HER_NAME='';
 
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
@@ -238,15 +257,14 @@ function runTime(){
  const start=new Date(2026,10,13),end=new Date(2026,10,28),total=15,now=new Date();
  const days=Math.max(0,Math.min(total,Math.floor((new Date(now.getFullYear(),now.getMonth(),now.getDate())-start)/864e5)));
  const pct=Math.round(days/total*100);
- $('#daysTxt').textContent=days+' de '+total+' días';
- $('#todayTxt').textContent=days>=total?'¡Llegó el día!':(days===0?'arrancamos':'hoy · día '+days);
+  $('#todayTxt').textContent=days===0?'arrancamos':'hoy · día '+days;
  const path=$('#roadPath'),done=$('#roadDone'),pin=$('#pin'),pulse=$('#pulse'),L=path.getTotalLength();
  done.style.strokeDasharray=L;
  const dur=reduce?1:1600,t0=performance.now();
  (function f(t){const k=Math.min(1,(t-t0)/dur),e=1-Math.pow(1-k,3),v=e*pct/100;
   done.style.strokeDashoffset=L*(1-v);const p=path.getPointAtLength(L*v);
   pin.setAttribute('cx',p.x);pin.setAttribute('cy',p.y);pulse.setAttribute('cx',p.x);pulse.setAttribute('cy',p.y);
-  $('#pct').textContent=Math.round(e*pct);if(k<1)requestAnimationFrame(f)})(t0);
+  $('#pct').textContent=Math.round(e*days);if(k<1)requestAnimationFrame(f)})(t0);
 }
 
 /* ===== Lugares ===== */
@@ -263,6 +281,16 @@ $('#saveOther').addEventListener('click',e=>{const v=$('#otherPlace').value.trim
 $('#otherPlace').addEventListener('keydown',e=>{if(e.key==='Enter')$('#saveOther').click()});
 $$('.place').forEach(p=>p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect();p.style.setProperty('--mx',(e.clientX-r.left)+'px');p.style.setProperty('--my',(e.clientY-r.top)+'px')}));
 
+/* ===== Detalles opcionales ===== */
+const pref={music:store.get('salida_music')||'',when:store.get('salida_when')||''};
+function renderPref(){
+ $$('[data-music]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.music===pref.music)));
+ $$('[data-when]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.when===pref.when)));
+ $('#tMus').textContent=pref.music||'Sorpresa';$('#tWhen').textContent=pref.when||'Por cuadrar';
+}
+[['data-music','music'],['data-when','when']].forEach(([a,k])=>$$('['+a+']').forEach(b=>b.addEventListener('click',e=>{const v=b.getAttribute(a);pref[k]=pref[k]===v?'':v;store.set('salida_'+k,pref[k]);renderPref();if(pref[k])burst(e.clientX,e.clientY,10)})));
+if(HER_NAME){$('#kick').textContent='Para '+HER_NAME+' · Parte 01';$('#tCo').textContent=HER_NAME+' 😉'}
+
 /* ===== Respuesta ===== */
 const replies={'Miremos agendas y cuadramos':'¡Perfecto! Entonces toca cuadrar un día. 🙌','Primero quiero revisar las opciones':'Con calma. Revisa los lugares y me cuentas. 🗺️','Mejor lo dejamos para otro momento':'Todo bien, sin presión. El plan queda esperando. 🌿'};
 function renderAnswer(){
@@ -271,8 +299,8 @@ function renderAnswer(){
  $('#answerFeedback').textContent=replies[answer]||'¡Gracias por revisar el plan!';
  $('#tAns').textContent=answer;ticket.classList.add('show');
 }
-$$('[data-answer]').forEach(b=>b.addEventListener('click',e=>{answer=b.dataset.answer;store.set('salida_respuesta',answer);ticket.classList.remove('show');void ticket.offsetWidth;renderAnswer();renderPlace();burst(e.clientX,e.clientY,answer.startsWith('Miremos')?70:26)}));
-function msg(){return 'Hola 👋 vi tu plan "Saliendo de la rutina". Mi respuesta: '+answer+'.'+(place?' Lugar favorito: '+place+'.':' Aún no elijo lugar.')}
+$$('[data-answer]').forEach(b=>b.addEventListener('click',e=>{answer=b.dataset.answer;store.set('salida_respuesta',answer);ticket.classList.remove('show');void ticket.offsetWidth;renderAnswer();renderPlace();burst(e.clientX,e.clientY,answer.startsWith('Miremos')?70:12)}));
+function msg(){return 'Hola 👋 vi tu plan "Saliendo de la rutina". Mi respuesta: '+answer+'.'+(place?' Lugar favorito: '+place+'.':' Aún no elijo lugar.')+(pref.when?' Me va bien: '+pref.when+'.':'')+(pref.music?' Música de camino: '+pref.music+'.':'')}
 $('#sendBtn').addEventListener('click',()=>{const url='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(msg());window.open(url,'_blank','noopener')});
 $('#copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(msg());toast('Copiado ✓ Pégalo donde quieras')}catch(e){toast('No se pudo copiar, usa el botón de enviar')}});
 
@@ -299,5 +327,5 @@ function tick(){cx.clearRect(0,0,innerWidth,innerHeight);bits=bits.filter(b=>b.l
  for(const b of bits){b.x+=b.vx;b.y+=b.vy;b.vy+=.22;b.vx*=.985;b.rot+=b.vr;b.l-=.016;cx.save();cx.globalAlpha=Math.max(0,b.l);cx.translate(b.x,b.y);cx.rotate(b.rot);cx.fillStyle=b.c;cx.fillRect(-b.r,-b.r/2,b.r*2,b.r);cx.restore()}
  if(bits.length)requestAnimationFrame(tick);else{run=false;cx.clearRect(0,0,innerWidth,innerHeight)}}
 
-renderPlace();renderAnswer();update();
+renderPlace();renderPref();renderAnswer();update();
 </script></body></html>
