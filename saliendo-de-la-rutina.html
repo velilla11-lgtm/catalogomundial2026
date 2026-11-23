@@ -194,15 +194,17 @@ p{color:var(--muted);line-height:1.6;margin:0;max-width:640px;font-size:clamp(.9
   <section class="slide"><div class="content">
    <div class="kicker rv" style="--i:0">Un detalle más · opcional</div><h2 class="rv" style="--i:1">Armemos el<br><span class="accent">camino juntos.</span></h2>
    <p class="rv" style="--i:2">Nada de esto es obligatorio. Es solo para que el plan se parezca más a ti.</p>
-   <div class="rv" style="--i:3"><div class="qlabel">🎵 ¿Qué suena de camino?<span class="opt">toca para elegir</span></div>
-    <div class="chips"><button class="chip" data-music="Pop">Pop</button><button class="chip" data-music="Rock">Rock</button><button class="chip" data-music="Baladas">Baladas</button><button class="chip" data-music="Latino">Latino</button><button class="chip" data-music="Sorpréndeme">Sorpréndeme 🎲</button></div></div>
-   <div class="rv" style="--i:4"><div class="qlabel">🕰️ ¿Cuándo se te antoja más?<span class="opt">sin compromiso</span></div>
+   <div class="rv" style="--i:3"><div class="qlabel">🍰 ¿Qué se te antoja probar?<span class="opt">toca para elegir</span></div>
+    <div class="chips"><button class="chip" data-food="Algo dulce">Algo dulce 🍰</button><button class="chip" data-food="Algo salado">Algo salado 🥐</button><button class="chip" data-food="Solo café">Solo café ☕</button><button class="chip" data-food="Sorpréndeme">Sorpréndeme 🎲</button></div></div>
+   <div class="rv" style="--i:4"><div class="qlabel">🌄 ¿Qué te gustaría ver por el camino?<span class="opt">lo que tú quieras</span></div>
+    <div class="chips"><button class="chip" data-view="Un mirador">Un mirador</button><button class="chip" data-view="Un pueblito">Un pueblito</button><button class="chip" data-view="Naturaleza">Naturaleza</button><button class="chip" data-view="Lo que salga">Lo que salga</button></div></div>
+   <div class="rv" style="--i:5"><div class="qlabel">🕰️ ¿Cuándo se te antoja más?<span class="opt">sin compromiso</span></div>
     <div class="chips"><button class="chip" data-when="Entre semana, en la tarde">Entre semana, tarde</button><button class="chip" data-when="Sábado en la mañana">Sábado en la mañana</button><button class="chip" data-when="Domingo en la tarde">Domingo en la tarde</button><button class="chip" data-when="Tú dime">Tú dime</button></div></div>
   </div></section>
 
   <section class="slide"><div class="content">
-   <div class="kicker rv" style="--i:0">Y ahora sí…</div><h2 class="rv" style="--i:1">¿Qué dice la<br><span class="accent">copilota?</span></h2>
-   <p class="rv" style="--i:2">La idea es pasar un rato agradable. Sin protocolo, sin afán y con buena música de camino.</p>
+   <div class="kicker rv" style="--i:0">Y ahora sí…</div><h2 class="rv" style="--i:1">¿Qué dice la<br><span class="accent">pilota?</span></h2>
+   <p class="rv" style="--i:2">La idea es pasar un rato agradable. Sin protocolo, sin afán y con buen paisaje de camino. La pilota manda; yo me dejo llevar.</p>
    <div class="answers rv" style="--i:3">
     <button class="answer" data-answer="Miremos agendas y cuadramos"><span class="chk">✓</span><b>🙋‍♀️ Miremos agendas</b><span>Busquemos un día que nos funcione.</span></button>
     <button class="answer" data-answer="Primero quiero revisar las opciones"><span class="chk">✓</span><b>🗺️ Déjame revisar</b><span>Quiero mirar bien esos lugares.</span></button>
@@ -211,7 +213,7 @@ p{color:var(--muted);line-height:1.6;margin:0;max-width:640px;font-size:clamp(.9
    <div id="answerFeedback" class="finalnote" aria-live="polite"></div>
    <div class="ticket" id="ticket">
     <div class="tmain"><div class="tlabel">✦ Pase de salida · Parte 01</div>
-     <div class="trow"><div><small>Destino</small><strong id="tDest">Por elegir</strong></div><div><small>Mi respuesta</small><strong id="tAns">—</strong></div><div><small>Momento</small><strong id="tWhen">Por cuadrar</strong></div><div><small>Música</small><strong id="tMus">Sorpresa</strong></div><div><small>Copiloto</small><strong id="tCo">Tú 😉</strong></div></div><div class="tease">🔒 Parte 02 · se revela cuando cuadremos el día</div></div>
+     <div class="trow"><div><small>Destino</small><strong id="tDest">Por elegir</strong></div><div><small>Mi respuesta</small><strong id="tAns">—</strong></div><div><small>Momento</small><strong id="tWhen">Por cuadrar</strong></div><div><small>Antojo</small><strong id="tFood">Sorpresa</strong></div><div><small>Paisaje</small><strong id="tView">Lo que salga</strong></div><div><small>Al mando</small><strong id="tCo">La pilota 😉</strong></div></div><div class="tease">🔒 Parte 02 · se revela cuando cuadremos el día</div></div>
     <div class="tside"><button class="ghost" id="copyBtn" style="padding:8px 12px;font-size:.78rem;justify-content:center">Copiar</button></div>
    </div>
    <p class="fine rv" style="--i:5">Y si el plan cambia, no pasa nada. Lo importante es que sea cómodo para los dos. Cualquier respuesta es una buena respuesta 🙂</p>
@@ -304,13 +306,14 @@ $('#otherPlace').addEventListener('keydown',e=>{if(e.key==='Enter')$('#saveOther
 $$('.place').forEach(p=>p.addEventListener('pointermove',e=>{const r=p.getBoundingClientRect();p.style.setProperty('--mx',(e.clientX-r.left)+'px');p.style.setProperty('--my',(e.clientY-r.top)+'px')}));
 
 /* ===== Detalles opcionales ===== */
-const pref={music:store.get('salida_music')||'',when:store.get('salida_when')||''};
+const pref={food:store.get('salida_food')||'',view:store.get('salida_view')||'',when:store.get('salida_when')||''};
 function renderPref(){
- $$('[data-music]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.music===pref.music)));
+ $$('[data-food]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.food===pref.food)));
+ $$('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.view===pref.view)));
  $$('[data-when]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.when===pref.when)));
- $('#tMus').textContent=pref.music||'Sorpresa';$('#tWhen').textContent=pref.when||'Por cuadrar';
+ $('#tFood').textContent=pref.food||'Sorpresa';$('#tView').textContent=pref.view||'Lo que salga';$('#tWhen').textContent=pref.when||'Por cuadrar';
 }
-[['data-music','music'],['data-when','when']].forEach(([a,k])=>$$('['+a+']').forEach(b=>b.addEventListener('click',e=>{const v=b.getAttribute(a);pref[k]=pref[k]===v?'':v;store.set('salida_'+k,pref[k]);renderPref();if(pref[k])burst(e.clientX,e.clientY,10)})));
+[['data-food','food'],['data-view','view'],['data-when','when']].forEach(([a,k])=>$$('['+a+']').forEach(b=>b.addEventListener('click',e=>{const v=b.getAttribute(a);pref[k]=pref[k]===v?'':v;store.set('salida_'+k,pref[k]);renderPref();if(pref[k])burst(e.clientX,e.clientY,10)})));
 if(HER_NAME){$('#kick').textContent='Para '+HER_NAME+' · Parte 01';$('#tCo').textContent=HER_NAME+' 😉'}
 
 /* ===== Respuesta ===== */
@@ -322,7 +325,7 @@ function renderAnswer(){
  $('#tAns').textContent=answer;ticket.classList.add('show');
 }
 $$('[data-answer]').forEach(b=>b.addEventListener('click',e=>{answer=b.dataset.answer;store.set('salida_respuesta',answer);ticket.classList.remove('show');void ticket.offsetWidth;renderAnswer();renderPlace();if(index===N-1){setCta();next.classList.remove('unlock');void next.offsetWidth;next.classList.add('unlock')}burst(e.clientX,e.clientY,answer.startsWith('Miremos')?70:12)}));
-function msg(){return 'Hola 👋 vi tu plan "Saliendo de la rutina". Mi respuesta: '+answer+'.'+(place?' Lugar favorito: '+place+'.':' Aún no elijo lugar.')+(pref.when?' Me va bien: '+pref.when+'.':'')+(pref.music?' Música de camino: '+pref.music+'.':'')}
+function msg(){return 'Hola 👋 vi tu plan "Saliendo de la rutina". Mi respuesta: '+answer+'.'+(place?' Lugar favorito: '+place+'.':' Aún no elijo lugar.')+(pref.when?' Me va bien: '+pref.when+'.':'')+(pref.food?' Se me antoja: '+pref.food+'.':'')+(pref.view?' Quiero ver: '+pref.view+'.':'')}
 function sendAnswer(){const url='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(msg());window.open(url,'_blank','noopener')}
 $('#copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(msg());toast('Copiado ✓ Pégalo donde quieras')}catch(e){toast('No se pudo copiar, usa el botón de enviar')}});
 
