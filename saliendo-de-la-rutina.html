@@ -325,7 +325,25 @@ function renderAnswer(){
  $('#tAns').textContent=answer;ticket.classList.add('show');
 }
 $$('[data-answer]').forEach(b=>b.addEventListener('click',e=>{answer=b.dataset.answer;store.set('salida_respuesta',answer);ticket.classList.remove('show');void ticket.offsetWidth;renderAnswer();renderPlace();if(index===N-1){setCta();next.classList.remove('unlock');void next.offsetWidth;next.classList.add('unlock')}burst(e.clientX,e.clientY,answer.startsWith('Miremos')?70:12)}));
-function msg(){return 'Hola 👋 vi tu plan "Saliendo de la rutina". Mi respuesta: '+answer+'.'+(place?' Lugar favorito: '+place+'.':' Aún no elijo lugar.')+(pref.when?' Me va bien: '+pref.when+'.':'')+(pref.food?' Se me antoja: '+pref.food+'.':'')+(pref.view?' Quiero ver: '+pref.view+'.':'')}
+function msg(){
+ const lc=s=>s.charAt(0).toLowerCase()+s.slice(1);
+ let m='Hola 👋 Ya vi tu plan "Saliendo de la rutina" 😄\n\n';
+ if(answer.startsWith('Miremos')){
+  m+='Me gustó la idea. ¡Miremos agendas y cuadramos! 🙌';
+  const d=[];
+  if(place)d.push('📍 Lugar: '+place);
+  if(pref.when)d.push('🗓️ Me queda bien: '+(pref.when==='Tú dime'?'lo que tú digas':lc(pref.when)));
+  if(pref.food)d.push('🍰 Se me antoja: '+(pref.food==='Sorpréndeme'?'lo que tú me sorprendas':lc(pref.food)));
+  if(pref.view)d.push('🌄 Me gustaría ver: '+lc(pref.view));
+  if(d.length)m+='\n\n'+d.join('\n');
+  m+='\n\nEso sí: la pilota maneja 😉';
+ }else if(answer.startsWith('Primero')){
+  m+='Déjame revisar los lugares con calma y te cuento. 🗺️'+(place?'\n\nPor ahora el que más me suena es '+place+'.':'');
+ }else{
+  m+='Gracias por la invitación. Por ahora prefiero dejarlo para más adelante. 🌿';
+ }
+ return m;
+}
 function sendAnswer(){const url='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(msg());window.open(url,'_blank','noopener')}
 $('#copyBtn').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(msg());toast('Copiado ✓ Pégalo donde quieras')}catch(e){toast('No se pudo copiar, usa el botón de enviar')}});
 
